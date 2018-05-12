@@ -1,0 +1,161 @@
+%This is free and unencumbered software released into the public domain.
+%
+%Anyone is free to copy, modify, publish, use, compile, sell, or
+%distribute this software, either in source code form or as a compiled
+%binary, for any purpose, commercial or non-commercial, and by any
+%means.
+%
+%In jurisdictions that recognize copyright laws, the author or authors
+%of this software dedicate any and all copyright interest in the
+%software to the public domain. We make this dedication for the benefit
+%of the public at large and to the detriment of our heirs and
+%successors. We intend this dedication to be an overt act of
+%relinquishment in perpetuity of all present and future rights to this
+%software under copyright law.
+%
+%THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+%EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+%MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+%IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+%OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+%ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+%OTHER DEALINGS IN THE SOFTWARE.
+%
+%For more information, please refer to <http://unlicense.org>
+
+
+Dies ist ein dummy text um alle möglichen Formatierungen darzustellen um so 
+Probleme zu finden.
+
+\bigskip
+Hier ein direktes Zitat: 
+\QuoteDirect{ein Zitat \Elision{} es get \SIC{} noch weiter}{dummy:book}
+{S. 22 ff.}. Weiter text.
+
+\smallskip
+Nun ein direktes Zitat ohne Seitenzahl:
+\QuoteDirectNoPage
+{Ein Zitat \ElisionSmall{} aus einer Quelle \AdjustWords{ist}}{dummy:URL}
+toll. Weiter text.
+
+\smallskip
+\QuoteDirectNoPage{Die DVD \AdjustWords{Aus der Verpackung \NoteFromAuthor{}} ist neu}
+{dummy:article}
+
+\smallskip
+Dies ist ein indirektes Zitat \QuoteIndirect{dummy:book}{\passim}.
+
+\smallskip
+Dies ist ein indirektes Zitat ohne Seitenzahl \QuoteIndirectNoPage{dummy:URL}.
+
+\smallskip
+Ein Text \QuoteM{in Anführungszeichen}.
+Hier \QuoteMs{In einfachen Anführungszeichen}.
+
+\bigskip
+Nun eine Tabelle: \SeeS{tab:testtab}
+
+\begin{table}[htb]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline 
+		Der & • & • & • \\ 
+		\hline \Grayrow
+		• & Inhalt & • & • \\ 
+		\hline 
+		• & • & der & • \\ 
+		\hline \Grayrow
+		• & • & • & Tabelle \\ 
+		\hline 
+	\end{tabular}
+	\caption{Eine Tabelle}
+	\label{tab:testtab}
+\end{table}
+
+\clearpage
+Jetzt ein Bild: \SeeS{fig:testfig}
+
+\begin{figure}[htb]
+	%\centerfloat
+	\centering
+	\include{Content/Intro/DummySection/Fouriersynthese/FourierOut}
+	\caption{Eine Fouriersynthese}
+	\label{fig:testfig}
+\end{figure}
+
+\bigskip
+Und die dazu Passende Formel: \SeeEq{eq:fourier}
+\index{Fouriersynthese}
+
+\begin{equation}
+	\sum_{i=0}^{n} \frac{1}{i \cdot 2 + 1} \cdot
+	\sin \left( x \cdot \left( i \cdot 2 + 1 \right) \right)
+	\label{eq:fourier}
+\end{equation}
+
+\clearpage
+Und nun C++ Code: \SeeS{code:example}
+
+\begin{c++}{Ein Stück Code}{code:example}
+int main(int argc, char *argv[]) {
+	int fd;
+	int chars_sent;
+	char buf[MAXBUF];
+
+	if (argc < 3) {
+		cerr << "argument missing, IP address an text needed, exiting..."<< endl;
+		return 1;
+	}
+
+	/*
+	 * multyrow comment
+	 */
+
+	// IP and Port
+	sockaddr_in name;
+	bzero(&name, sizeof(name));
+	name.sin_family = AF_INET;
+	inet_aton(argv[1], &(name.sin_addr));
+	name.sin_port = htons(MYPORT);
+
+	// connect to server
+	DEBUG("try connect");
+	if (connect(fd, (struct sockaddr *) &name, sizeof(name)) < 0) {
+		PANIC("CONNECT");
+	}
+	// Transfer
+	sprintf(buf, "%s:%s", argv[1], argv[2]);
+	chars_sent = send(fd, buf, strlen(buf), 0);
+	DEBUG("n=" << chars_sent << " Bytes sent");
+	DEBUG("message length: " << strlen(buf));
+	if (chars_sent < 0) {
+		PANIC("SEND");
+	}
+
+	// close socket
+	DEBUG("close socket");
+	close(fd);
+
+	return 0;
+}
+\end{c++}
+
+Ein \index{Dummytext}Dummytext mit einer \ac{DUM} die öfter benutzt wird \ac{DUM}
+
+\begin{longtable}{|c|m{12cm}|}
+	\hline 
+	Nummer & Anforderung \\
+	\hline
+	\EmptyRow 
+	\hline \endhead
+		\Textlabel{FA 1.1}{text:1} &
+			Anforderung 1 \\
+	\hline \Grayrow 
+		\Textlabel{FA 1.2}{text:2} & 
+			Anforderung 2\\ 
+	\hline
+	\CaptionLongtable{Funktionale Anforderungen an das Planungstool}
+	\label{tab:FunctionalRequirements}
+\end{longtable}
+
+so kann darauf referenziert werden: \ref{text:1} \ref{text:2}

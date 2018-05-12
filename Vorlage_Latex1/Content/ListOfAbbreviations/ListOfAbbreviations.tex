@@ -1,0 +1,45 @@
+%This is free and unencumbered software released into the public domain.
+%
+%Anyone is free to copy, modify, publish, use, compile, sell, or
+%distribute this software, either in source code form or as a compiled
+%binary, for any purpose, commercial or non-commercial, and by any
+%means.
+%
+%In jurisdictions that recognize copyright laws, the author or authors
+%of this software dedicate any and all copyright interest in the
+%software to the public domain. We make this dedication for the benefit
+%of the public at large and to the detriment of our heirs and
+%successors. We intend this dedication to be an overt act of
+%relinquishment in perpetuity of all present and future rights to this
+%software under copyright law.
+%
+%THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+%EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+%MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+%IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+%OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+%ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+%OTHER DEALINGS IN THE SOFTWARE.
+%
+%For more information, please refer to <http://unlicense.org>
+
+
+\setlength{\columnsep}{1 cm} % Space between columnseprule and right text
+\setlength{\columnseprule}{\LineThickness} % Thikness of the columnseprule
+
+\begin{multicols}{2}
+	\begin{acronym}[wwwwwwwW] % The length of the longes abbreviation
+
+		\renewcommand{\aclabelfont}[1]{\textbf{\textsf{#1}}\dotfill} % add dotfill
+		\setlength{\itemsep}{1 pt} % set space between lines
+
+		% another option to get the spacing right but it looks bad:
+		% \centering
+
+		% Sortet alphabetically by abbreviation
+		\acro{DUM}{Dummy Abkürzung}
+		\acro{USB}{Universal Serial Bus}
+		\acro{LAN}{Local Area Network}
+		\acro{UE4}{Unreal Enging 4}
+	\end{acronym}
+\end{multicols}

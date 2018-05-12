@@ -1,0 +1,18 @@
+\begin{thebibliography}{1}
+
+\bibitem{dummy:article}
+{\sc Abel, Anton} \btxandlong{}\ {\sc Karl Schäfer}: {\em dummy title}.
+\newblock dummy journal, 9(1):1:1--1:22, \btxmonfeblong{} 2013.
+
+\bibitem{dummy:URL}
+{\sc Bauer, Karl~Heinz}: {\em Title}.
+\newblock \url{https://www.google.de}, März 2015.
+\newblock (16.07.2015, 13:23).
+
+\bibitem{dummy:book}
+{\sc Flender, Harald}, {\sc Hermann Hassler}, {\sc Maria Schmidt}
+  \btxandlong{}\ {\sc Monika Helfer}: {\em Grundlagen der Informationstechnik},
+  \btxvolumelong{}~1 \btxofserieslong{}\ {\em 3}.
+\newblock Musterverlag, München, 4 \btxeditionlong{}, 6 2003.
+
+\end{thebibliography}

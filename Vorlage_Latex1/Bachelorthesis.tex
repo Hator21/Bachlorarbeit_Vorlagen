@@ -1,0 +1,96 @@
+%This is free and unencumbered software released into the public domain.
+%
+%Anyone is free to copy, modify, publish, use, compile, sell, or
+%distribute this software, either in source code form or as a compiled
+%binary, for any purpose, commercial or non-commercial, and by any
+%means.
+%
+%In jurisdictions that recognize copyright laws, the author or authors
+%of this software dedicate any and all copyright interest in the
+%software to the public domain. We make this dedication for the benefit
+%of the public at large and to the detriment of our heirs and
+%successors. We intend this dedication to be an overt act of
+%relinquishment in perpetuity of all present and future rights to this
+%software under copyright law.
+%
+%THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+%EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+%MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+%IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+%OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+%ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+%OTHER DEALINGS IN THE SOFTWARE.
+%
+%For more information, please refer to <http://unlicense.org>
+
+\documentclass[	%draft, % To display over/unterfull hboxes
+				a4paper, % use DIN A4 Paper
+				onecolumn, % Only one Column of text
+				oneside, % Pint only right sides
+				titlepage, % Print a titlepage
+				openany, % Open new chapter on any page
+				12pt] % Text size
+				{report}
+
+\include{Content/Settings}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\input{Content/TitlePage/TitlePage}
+\input{Content/Abstract/Abstract}
+
+% Sperrvermerk
+
+\setcounter{page}{2}
+
+\tableofcontents
+
+\chapter{Einleitung}
+	\input{Content/Intro/DummySection/DummySection}
+\chapter{Stand der Praxis}
+\chapter{Eigene Ideen \& Konzepte}
+\chapter{Methoden}
+\chapter{Realisierung}
+\chapter{Evaluation \& Validation}
+\chapter{Ausblick}
+
+%Appendix
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\lstlistlistingname}
+\lstlistoflistings
+
+\cleardoublepage
+\phantomsection
+\markboth{\uppercase{\ListOfAbbreviations}}{}
+\chapter*{\ListOfAbbreviations}
+\addcontentsline{toc}{chapter}{\ListOfAbbreviations}
+\input{Content/ListOfAbbreviations/ListOfAbbreviations}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliography{BachelorthesisLiterature}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\indexname}
+\printindex
+
+\thispagestyle{empty}
+\include{Content/StatutoryDeclaration/StatutoryDeclaration}
+
+\end{document}
