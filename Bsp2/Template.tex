@@ -1,0 +1,45 @@
+\documentclass[paper=a4, paper=portrait, pagesize=auto, twoside, % 2-seitig
+fontsize=12pt,ngerman]{scrreprt} 
+
+% Serifen
+\usepackage{times}
+
+\usepackage{lipsum}
+
+% Harvard
+\usepackage[style=authoryear]{biblatex}
+\addbibresource{content/test.bib}
+\usepackage{fancyhdr}
+\usepackage{ifthen}
+
+% listing mit zeilennummer
+\usepackage{listings}
+\lstset
+{
+	numbers=left
+}
+
+% Seitennummern außen oben
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[LO,RE]{\thepage}
+\cfoot{}
+\renewcommand{\headrulewidth}{0pt}
+
+% Römisch
+\renewcommand{\thechapter}{\Roman{section}} 
+
+\listfiles % schreibt alle verwendeten Dateien in die log Datei
+
+%% Dokument Beginn %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+% Flattertext
+\begin{flushleft}
+\input{content/textteil}
+\printbibliography
+\end{flushleft}
+\end{document}
+%% Dokument ENDE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
